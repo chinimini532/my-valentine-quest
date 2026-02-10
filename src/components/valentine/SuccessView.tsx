@@ -2,11 +2,10 @@ import { useState, useCallback } from "react";
 import DatePicker from "@/components/valentine/DatePicker";
 import MessagePanel from "@/components/valentine/MessagePanel";
 import SurpriseSection from "@/components/valentine/SurpriseSection";
-import LoveNoteSection from "@/components/valentine/LoveNoteSection";
 
 const SuccessView = () => {
   const [activePanel, setActivePanel] = useState<
-    "none" | "date" | "surprise" | "lovenote"
+    "none" | "date" | "surprise" 
   >("none");
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
@@ -45,13 +44,6 @@ const SuccessView = () => {
         >
           One more surprise 🎁
         </button>
-        <button
-          onClick={() => setActivePanel("lovenote")}
-          className="w-full max-w-xs bg-card text-card-foreground border border-border font-body font-semibold px-6 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-ring/30"
-          aria-label="Send a love note"
-        >
-          Send a love note 💌
-        </button>
       </div>
 
       {activePanel === "date" && (
@@ -67,7 +59,6 @@ const SuccessView = () => {
       )}
 
       {activePanel === "surprise" && <SurpriseSection />}
-      {activePanel === "lovenote" && <LoveNoteSection />}
     </div>
   );
 };
